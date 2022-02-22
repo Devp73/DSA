@@ -5,13 +5,7 @@ struct list
 {
 	int id;
 	struct list *next;
-}*head=NULL, *node, *temp, *last=NULL;
-
-struct list1
-{
-	int id;
-	struct list1 *next;
-}*head1=NULL, *node1, *temp1, *last1=NULL;
+}*head=NULL, *node, *temp, *last=NULL, *head1=NULL, *last1=NULL;
 
 void insert_first()
 {
@@ -56,16 +50,16 @@ void prnt()
 
 void insert_first_1()
 {
-    node1=(struct list1*) malloc(sizeof(struct list1)); //assign address to node
-    node1->next=NULL; //assign null to next
+    node=(struct list*) malloc(sizeof(struct list)); //assign address to node
+    node->next=NULL; //assign null to next
     printf("Enter your ID: ");
-    scanf("%d",&node1->id);
+    scanf("%d",&node->id);
     if(head1==NULL)
-        head1=last1=node1;
+        head1=last1=node;
     else
     {
-        node1->next=head1; //first create the link then assign head or last
-        head1=node1;
+        node->next=head1; //first create the link then assign head or last
+        head1=node;
     }
 }
 
@@ -75,29 +69,29 @@ void del_first_1()
         printf("No node is there\n");
     else
     {
-        temp1=head1;
+        temp=head1;
         if(head1->next==NULL) //last data in linked list
             head1=last1=NULL;
         else
-        	head1=temp1->next;
-        free(temp1); //free temp memory
+        	head1=temp->next;
+        free(temp); //free temp memory
     }
 }
 
 void prnt_1()
 {
-	temp1=head1;
-	while(temp1!=NULL)
+	temp=head1;
+	while(temp!=NULL)
 	{
-		printf("Id = %d\n",temp1->id);
-		temp1=temp1->next;
+		printf("Id = %d\n",temp->id);
+		temp=temp->next;
 		printf("\n\n");
 	}
 }
 
 void merge()
 {
-	last->next=head1; //ignore the warning
+	last->next=head1; //no more warning
 }
 
 void main()
