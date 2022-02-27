@@ -157,9 +157,9 @@ void del_pos()
 	count();
 	if(pos==1)
 		del_first();
-	else if(pos==cnt+1)
+	else if(pos==cnt)
 		del_last();
-	else if(pos<1 || pos>(cnt+1))
+	else if(pos<1 || pos>cnt)
 		printf("Position out of bound");
 	else
 	{
